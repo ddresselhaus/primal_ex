@@ -1,0 +1,15 @@
+[package]
+name = "primalex_nativeprime"
+version = "0.1.0"
+authors = []
+
+[lib]
+name = "primalex_nativeprime"
+path = "src/lib.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+rustler = "0.14.0"
+rustler_codegen = "0.14.0"
+lazy_static = "0.2"
+primal = "0.2.3"

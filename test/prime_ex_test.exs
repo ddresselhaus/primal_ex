@@ -1,4 +1,4 @@
-defmodule PrimeExTest do
+defmodule PrimalExTest do
   use ExUnit.Case
 
   test "primes/1 returns prime numbers less than x" do
@@ -16,7 +16,7 @@ defmodule PrimeExTest do
       31,
       37
     ]
-    {:ok, result} = PrimeEx.primes(40)
+    {:ok, result} = PrimalEx.primes(40)
     assert result == expected_result
   end
 
@@ -35,7 +35,7 @@ defmodule PrimeExTest do
       31,
       37
     ]
-    {:ok, result} = PrimeEx.n_primes(12)
+    {:ok, result} = PrimalEx.n_primes(12)
     assert result == expected_result
   end
 

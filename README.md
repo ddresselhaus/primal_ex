@@ -1,10 +1,14 @@
-# PrimeEx
+# PrimalEx
 
-**TODO: Add description**
+NIF Elixir bindings for the [Primal](https://github.com/huonw/primal) Rust library.
+
+It utilizes the [Rustler](https://github.com/hansihe/rustler) library to handle the NIF interop, which may or may not be production-ready. Be aware of the caveats outlined in [this blog post.](http://hansihe.com/2017/02/05/rustler-safe-erlang-elixir-nifs-in-rust.html)
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+Because PrimalEx is leveraging the super-fast Rust library, Primal, you will need to install Rust on your system. The official installation instruction [can be found here.](https://www.rust-lang.org/en-US/install.html)
+
+The package itself can be installed
 by adding `prime_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -13,7 +17,17 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/prime_ex](https://hexdocs.pm/prime_ex).
+## Usage examples
+
+```elixir
+
+# Get a list of primes less than 40
+PrimalEx.primes(40)
+{:ok, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]}
+
+# Get a list of the first 10 primes
+PrimalEx.n_primes(10)
+{:ok, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]}
+
+```
 
