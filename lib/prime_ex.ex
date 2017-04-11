@@ -1,18 +1,13 @@
 defmodule PrimeEx do
-  @moduledoc """
-  Documentation for PrimeEx.
-  """
 
-  @doc """
-  Hello world.
+  alias PrimeEx.NativePrime
 
-  ## Examples
-
-      iex> PrimeEx.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def primes(x) do
+    NativePrime.primes(x)
   end
+
+  def n_primes(x) do
+    NativePrime.n_primes(x)
+  end
+
 end
