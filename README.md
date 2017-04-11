@@ -10,7 +10,7 @@ by adding `prime_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:prime_ex, "~> 0.1.0"}]
+  [{:primal_ex, "~> 0.1.0"}]
 end
 ```
 
