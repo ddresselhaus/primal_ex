@@ -5,10 +5,7 @@ NIF Elixir bindings for the [Primal](https://github.com/huonw/primal) Rust libra
 It utilizes the [Rustler](https://github.com/hansihe/rustler) library to handle the NIF interop, which may or may not be production-ready. Be aware of the caveats outlined in [this blog post.](http://hansihe.com/2017/02/05/rustler-safe-erlang-elixir-nifs-in-rust.html)
 
 ## Installation
-
-Because PrimalEx is leveraging the super-fast Rust library, Primal, you will need to install Rust on your system. The official installation instruction [can be found here.](https://www.rust-lang.org/en-US/install.html)
-
-The package itself can be installed
+The package can be installed
 by adding `prime_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir

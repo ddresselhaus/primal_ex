@@ -3,12 +3,14 @@ defmodule PrimalEx.Mixfile do
 
   def project do
     [app: :primal_ex,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      compilers: [:rustler] ++ Mix.compilers(),
      rustler_crates: rustler_crates(),
+     description: description(),
+     package: package(),
      deps: deps()]
   end
 
@@ -32,7 +34,8 @@ defmodule PrimalEx.Mixfile do
   defp deps do
     [
       {:benchfella, "~> 0.3.0"},
-      {:rustler, "~> 0.9.0"}
+      {:rustler, "~> 0.9.0", only: :dev},
+      {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 
@@ -41,5 +44,19 @@ defmodule PrimalEx.Mixfile do
       path: "native/primalex_nativeprime",
       mode: (if Mix.env == :prod, do: :release, else: :debug),
     ]]
+  end
+  defp description do
+    """
+    A prime number library for Elixir, providing NIF bindings for the Primal Rust library.
+    """
+  end
+  defp package do
+    [
+      name: :primal_ex,
+      files: ["lib", "native", "priv", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["Dan Dresselhaus"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/ddresselhaus/primal_ex"}
+    ]
   end
 end
