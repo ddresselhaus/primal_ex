@@ -3,7 +3,7 @@ defmodule PrimalEx.Mixfile do
 
   def project do
     [app: :primal_ex,
-     version: "0.1.1",
+     version: "0.1.2",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -33,8 +33,8 @@ defmodule PrimalEx.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:benchfella, "~> 0.3.0"},
-      {:rustler, "~> 0.9.0", only: :dev},
+      {:benchfella, "~> 0.3.0", only: :dev},
+      {:rustler, "~> 0.9.0"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
