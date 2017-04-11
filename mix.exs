@@ -7,6 +7,8 @@ defmodule PrimeEx.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     compilers: [:rustler] ++ Mix.compilers(),
+     rustler_crates: rustler_crates(),
      deps: deps()]
   end
 
@@ -28,6 +30,16 @@ defmodule PrimeEx.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:benchfella, "~> 0.3.0"},
+      {:rustler, "~> 0.9.0"}
+    ]
+  end
+
+  defp rustler_crates do
+    [nprimes: [
+      path: "native/nprimes",
+      mode: (if Mix.env == :prod, do: :release, else: :debug),
+    ]]
   end
 end

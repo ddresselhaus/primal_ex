@@ -1,0 +1,2 @@
+%{"benchfella": {:hex, :benchfella, "0.3.4", "41d2c017b361ece5225b5ba2e3b30ae53578c57c6ebc434417b4f1c2c94cf4f3", [:mix], []},
+  "rustler": {:hex, :rustler, "0.9.0", "6fa87ac78f48f70aa8ecfb6e16b8af41c398989d33de41d292b5581d6a2eeb5a", [:mix], []}}
