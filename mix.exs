@@ -37,8 +37,8 @@ defmodule PrimeEx.Mixfile do
   end
 
   defp rustler_crates do
-    [nprimes: [
-      path: "primeex_nativeprime",
+    [native_prime: [
+      path: "native/primeex_nativeprime",
       mode: (if Mix.env == :prod, do: :release, else: :debug),
     ]]
   end
