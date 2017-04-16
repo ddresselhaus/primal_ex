@@ -26,4 +26,8 @@ defmodule PrimalEx do
     NativePrime.n_primes(x,y)
   end
 
+  def nth_prime(x)  do
+    NativePrime.nth_prime(x)
+  end
+
 end

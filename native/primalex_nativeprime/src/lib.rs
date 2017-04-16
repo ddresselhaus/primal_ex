@@ -21,7 +21,8 @@ rustler_export_nifs! {
         ("primes", 1, primes),
         ("primes", 2, primes_x_y),
         ("n_primes", 1, n_primes),
-        ("n_primes", 2, n_primes_x_y)
+        ("n_primes", 2, n_primes_x_y),
+        ("nth_prime", 1, nth_prime)
     ],
     None
 }
@@ -63,4 +64,10 @@ fn bare_nth_prime(x: usize) -> usize {
     let (_, hi) = primal::estimate_nth_prime(x as u64);
     let sieve = primal::Sieve::new(hi as usize);
     sieve.nth_prime(x)
+}
+
+fn nth_prime<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let x: usize = try!(args[0].decode());
+    let results = bare_nth_prime(x);
+    Ok((atoms::ok(), results).encode(env))
 }

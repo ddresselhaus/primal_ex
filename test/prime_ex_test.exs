@@ -28,6 +28,14 @@ defmodule PrimalExTest do
 
     {:ok, result} = PrimalEx.n_primes(x,y)
     assert result == expected_result
+
+  end
+
+  test "nth_prime/1 returns nth prime" do
+    n = 1_000_000
+    expected_result = 15_485_863
+    {:ok, result} = PrimalEx.nth_prime(n)
+    assert result == expected_result
   end
 
 end
