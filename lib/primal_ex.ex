@@ -30,4 +30,8 @@ defmodule PrimalEx do
     NativePrime.nth_prime(x)
   end
 
+  def count_primes(x)  do
+    NativePrime.count_primes(x)
+  end
+
 end

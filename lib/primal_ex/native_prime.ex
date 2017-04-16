@@ -8,5 +8,6 @@ defmodule PrimalEx.NativePrime do
   def n_primes(_a), do: err()
   def n_primes(_a,_b), do: err()
   def nth_prime(_a), do: err()
+  def count_primes(_a), do: err()
 
 end

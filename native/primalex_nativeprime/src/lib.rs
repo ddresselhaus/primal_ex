@@ -22,7 +22,8 @@ rustler_export_nifs! {
         ("primes", 2, primes_x_y),
         ("n_primes", 1, n_primes),
         ("n_primes", 2, n_primes_x_y),
-        ("nth_prime", 1, nth_prime)
+        ("nth_prime", 1, nth_prime),
+        ("count_primes", 1, count_primes)
     ],
     None
 }
@@ -70,4 +71,10 @@ fn nth_prime<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>
     let x: usize = try!(args[0].decode());
     let results = bare_nth_prime(x);
     Ok((atoms::ok(), results).encode(env))
+}
+
+fn count_primes<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let x: usize = try!(args[0].decode());
+    let count = primal::StreamingSieve::prime_pi(x);
+    Ok((atoms::ok(), count).encode(env))
 }
