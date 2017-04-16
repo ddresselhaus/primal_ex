@@ -1,7 +1,7 @@
 #[macro_use] extern crate rustler;
 #[macro_use] extern crate rustler_codegen;
 #[macro_use] extern crate lazy_static;
-#[macro_use] extern crate primal;
+extern crate primal;
 
 use rustler::{NifEnv, NifTerm, NifResult, NifEncoder};
 use std::iter::FromIterator;
@@ -23,7 +23,8 @@ rustler_export_nifs! {
         ("n_primes", 1, n_primes),
         ("n_primes", 2, n_primes_x_y),
         ("nth_prime", 1, nth_prime),
-        ("count_primes", 1, count_primes)
+        ("count_primes", 1, count_primes),
+        ("is_prime", 1, is_prime),
     ],
     None
 }
@@ -77,4 +78,10 @@ fn count_primes<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<
     let x: usize = try!(args[0].decode());
     let count = primal::StreamingSieve::prime_pi(x);
     Ok((atoms::ok(), count).encode(env))
+}
+
+fn is_prime<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let x: usize = try!(args[0].decode());
+    let result = primal::is_prime(x as u64);
+    Ok((atoms::ok(), result).encode(env))
 }

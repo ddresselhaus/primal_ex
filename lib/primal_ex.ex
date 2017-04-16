@@ -34,4 +34,8 @@ defmodule PrimalEx do
     NativePrime.count_primes(x)
   end
 
+  def is_prime(x)  do
+    NativePrime.is_prime(x)
+  end
+
 end

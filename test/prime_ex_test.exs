@@ -45,4 +45,18 @@ defmodule PrimalExTest do
     assert result == expected_result
   end
 
+  test "is_prime/1 returns true if number is prime" do
+    n = 3
+    expected_result = true
+    {:ok, result} = PrimalEx.is_prime(n)
+    assert result == expected_result
+  end
+
+  test "is_prime/1 returns false if number is not prime" do
+    n = 6
+    expected_result = false
+    {:ok, result} = PrimalEx.is_prime(n)
+    assert result == expected_result
+  end
+
 end
