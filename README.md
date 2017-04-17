@@ -14,6 +14,8 @@ def deps do
 end
 ```
 
+You may have to install Rust as well. Official installation instructions are [here](https://www.rust-lang.org/en-US/install.html)
+
 ## Usage examples
 
 ```elixir
