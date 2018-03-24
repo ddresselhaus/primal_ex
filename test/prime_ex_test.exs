@@ -38,8 +38,8 @@ defmodule PrimalExTest do
   end
 
   test "count_primes/1 count the primes below x" do
-    n = 1_000_000_000
-    expected_result = 50_847_534
+    n = 1_000_000
+    expected_result = 78_498
     {:ok, result} = PrimalEx.count_primes(n)
     assert result == expected_result
   end
