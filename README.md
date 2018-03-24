@@ -16,7 +16,7 @@ def deps do
 end
 ```
 
-You will have to install Rust as well. Official installation instructions are [here](https://www.rust-lang.org/en-US/install.html)
+You will need Rust installed as well. Official installation instructions are [here](https://www.rust-lang.org/en-US/install.html)
 
 ## Usage examples
 
