@@ -34,8 +34,8 @@ defmodule PrimalEx.Mixfile do
   defp deps do
     [
       {:benchfella, "~> 0.3.0", only: :dev},
-      {:rustler, "~> 0.9.0"},
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:rustler, "~> 0.16.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev},
     ]
   end
 
