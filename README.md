@@ -2,7 +2,9 @@
 
 NIF Elixir bindings for the [Primal](https://github.com/huonw/primal) Rust library.
 
-It utilizes the [Rustler](https://github.com/hansihe/rustler) library to handle the NIF interop, which may or may not be production-ready. Be aware of the caveats outlined in [this blog post.](http://hansihe.com/2017/02/05/rustler-safe-erlang-elixir-nifs-in-rust.html)
+It utilizes the [Rustler](https://github.com/hansihe/rustler) library to handle the NIF interop. Be aware of the caveats outlined in [this blog post.](http://hansihe.com/2017/02/05/rustler-safe-erlang-elixir-nifs-in-rust.html)
+
+NOTE: version 0.2.0 and later make use of Erlang's dirty schedulers, which are supported by default in OPT 20 and later.
 
 ## Installation
 The package can be installed
@@ -10,11 +12,11 @@ by adding `prime_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:primal_ex, "~> 0.1.5"}]
+  [{:primal_ex, "~> 0.2.0"}]
 end
 ```
 
-You may have to install Rust as well. Official installation instructions are [here](https://www.rust-lang.org/en-US/install.html)
+You will have to install Rust as well. Official installation instructions are [here](https://www.rust-lang.org/en-US/install.html)
 
 ## Usage examples
 

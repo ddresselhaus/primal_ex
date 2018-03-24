@@ -3,8 +3,8 @@ defmodule PrimalEx.Mixfile do
 
   def project do
     [app: :primal_ex,
-     version: "0.1.5",
-     elixir: "~> 1.4",
+     version: "0.2.0",
+     elixir: "~> 1.6",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      compilers: [:rustler] ++ Mix.compilers(),
