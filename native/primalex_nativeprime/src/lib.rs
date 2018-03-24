@@ -32,24 +32,24 @@ rustler_export_nifs! {
 
 fn primes<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
     let num: usize = try!(args[0].decode());
-    let thing  = primal::Primes::all().take_while(|p| *p < num);
-    let sieve = Vec::from_iter(thing);
-    Ok((atoms::ok(), sieve).encode(env))
+    let primes_iter  = primal::Primes::all().take_while(|p| *p < num);
+    let primes_vec = Vec::from_iter(primes_iter);
+    Ok((atoms::ok(), primes_vec).encode(env))
 }
 
 fn primes_x_y<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
     let x: usize = try!(args[0].decode());
     let y: usize = try!(args[1].decode());
-    let thing  = primal::Primes::all().take_while(|p| *p < y).filter(|p| *p > x );
-    let sieve = Vec::from_iter(thing);
-    Ok((atoms::ok(), sieve).encode(env))
+    let primes_iter  = primal::Primes::all().take_while(|p| *p < y).filter(|p| *p > x );
+    let primes_vec = Vec::from_iter(primes_iter);
+    Ok((atoms::ok(), primes_vec).encode(env))
 }
 
 fn n_primes<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
     let num: usize = try!(args[0].decode());
-    let thing  = primal::Primes::all().take(num);
-    let sieve = Vec::from_iter(thing);
-    Ok((atoms::ok(), sieve).encode(env))
+    let primes_iter  = primal::Primes::all().take(num);
+    let primes_vec = Vec::from_iter(primes_iter);
+    Ok((atoms::ok(), primes_vec).encode(env))
 }
 
 fn n_primes_x_y<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
@@ -58,9 +58,9 @@ fn n_primes_x_y<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<
     let limit = bare_nth_prime(x+y);
 
     let sieve = primal::Sieve::new(limit);
-    let iter_results = sieve.primes_from(y).take(x);
-    let vec_results = Vec::from_iter(iter_results);
-    Ok((atoms::ok(), vec_results).encode(env))
+    let primes_iter = sieve.primes_from(y).take(x);
+    let primes_vec = Vec::from_iter(primes_iter);
+    Ok((atoms::ok(), primes_vec).encode(env))
 }
 
 fn bare_nth_prime(x: usize) -> usize {
