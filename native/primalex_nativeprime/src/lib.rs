@@ -4,6 +4,7 @@
 extern crate primal;
 
 use rustler::{NifEnv, NifTerm, NifResult, NifEncoder};
+use rustler::schedule::NifScheduleFlags;
 use std::iter::FromIterator;
 
 mod atoms {
@@ -18,13 +19,13 @@ mod atoms {
 rustler_export_nifs! {
     "Elixir.PrimalEx.NativePrime",
     [
-        ("primes", 1, primes),
-        ("primes", 2, primes_x_y),
-        ("n_primes", 1, n_primes),
-        ("n_primes", 2, n_primes_x_y),
-        ("nth_prime", 1, nth_prime),
-        ("count_primes", 1, count_primes),
-        ("is_prime", 1, is_prime),
+        ("primes", 1, primes, NifScheduleFlags::DirtyCpu),
+        ("primes", 2, primes_x_y, NifScheduleFlags::DirtyCpu),
+        ("n_primes", 1, n_primes, NifScheduleFlags::DirtyCpu),
+        ("n_primes", 2, n_primes_x_y, NifScheduleFlags::DirtyCpu),
+        ("nth_prime", 1, nth_prime, NifScheduleFlags::DirtyCpu),
+        ("count_primes", 1, count_primes, NifScheduleFlags::DirtyCpu),
+        ("is_prime", 1, is_prime, NifScheduleFlags::DirtyCpu),
     ],
     None
 }
